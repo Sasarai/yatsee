@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class Yatzy1Test {
 
     @Nested
-    class Chance {
+    class ChanceScoreCalculator {
         @ParameterizedTest
         @MethodSource("chanceTestArguments")
         void givenDicesResult_whenEvaluateChanceScore_ShouldReturnExpectedScore(int[] dices, int expectedScore) {
