@@ -8,7 +8,6 @@ import java.util.Map;
 public record FullHouseScoreCalculator() implements ScoreCalculator {
     private static final Integer PAIR_OCCURRENCE = 2;
     private static final Integer THREE_OF_KIND_OCCURRENCE = 3;
-    private static final Integer NO_POINT = 0;
 
     @Override
     public int evaluate(Map<DiceValue, Long> diceFrequencies) {

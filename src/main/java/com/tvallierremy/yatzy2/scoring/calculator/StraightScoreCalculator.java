@@ -10,8 +10,6 @@ import java.util.stream.Collectors;
 import static java.util.Arrays.asList;
 
 public record StraightScoreCalculator(Strategy strategy) implements ScoreCalculator {
-    private static final Integer NO_POINT = 0;
-
     @Override
     public int evaluate(Map<DiceValue, Long> diceFrequencies) {
         Set<Integer> obtainedValues = diceFrequencies.entrySet().stream()

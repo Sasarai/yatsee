@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public record TwoPairsScoreCalculator() implements ScoreCalculator {
-    private static final Integer NO_POINT = 0;
     @Override
     public int evaluate(Map<DiceValue, Long> diceFrequencies) {
         List<Integer> pairs = diceFrequencies.entrySet().stream()

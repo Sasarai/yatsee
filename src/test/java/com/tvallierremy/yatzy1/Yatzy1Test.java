@@ -1,5 +1,6 @@
 package com.tvallierremy.yatzy1;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,7 +16,7 @@ class Yatzy1Test {
 
     @Nested
     class ChanceScoreCalculator {
-        @ParameterizedTest
+        @ParameterizedTest(name = "CHANCE - Expect score {1} for dice roll {0}")
         @MethodSource("chanceTestArguments")
         void givenDicesResult_whenEvaluateChanceScore_ShouldReturnExpectedScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -35,7 +36,7 @@ class Yatzy1Test {
 
     @Nested
     class Yatzy {
-        @ParameterizedTest
+        @ParameterizedTest(name = "YATZY - Expect score 50 for dice roll {0}")
         @ValueSource(ints = {1, 2, 3, 4, 5, 6})
         void givenDicesWithSameValues_WhenEvaluateYatzyScore_ShouldReturn50points(int value) {
             Yatzy1 yatzy1 = Yatzy1.of(value, value, value, value, value);
@@ -46,6 +47,7 @@ class Yatzy1Test {
         }
 
         @Test
+        @DisplayName("YATZY - Expect score 0 if all values are not the same")
         void givenDicesWithSomeDifferentValues_WhenEvaluateYatzyScore_ShouldReturn0points() {
             Yatzy1 yatzy1 = Yatzy1.of(1, 2, 3, 4, 5);
 
@@ -57,7 +59,7 @@ class Yatzy1Test {
 
     @Nested
     class Ones {
-        @ParameterizedTest
+        @ParameterizedTest(name = "ONES - Expect score {1} for dice roll {0}")
         @MethodSource("onesTestArguments")
         void givenDicesResult_whenEvaluateOnesScore_ShouldReturnAllOnesAddedAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -79,7 +81,7 @@ class Yatzy1Test {
 
     @Nested
     class Twos {
-        @ParameterizedTest
+        @ParameterizedTest(name = "TWOS - Expect score {1} for dice roll {0}")
         @MethodSource("twosTestArguments")
         void givenDicesResult_whenEvaluateTwosScore_ShouldReturnAllTwosAddedAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -101,7 +103,7 @@ class Yatzy1Test {
 
     @Nested
     class Threes {
-        @ParameterizedTest
+        @ParameterizedTest(name = "THREES - Expect score {1} for dice roll {0}")
         @MethodSource("threesTestArguments")
         void givenDicesResult_whenEvaluateThreesScore_ShouldReturnAllThreesAddedAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -123,7 +125,7 @@ class Yatzy1Test {
 
     @Nested
     class Fours {
-        @ParameterizedTest
+        @ParameterizedTest(name = "FOURS - Expect score {1} for dice roll {0}")
         @MethodSource("foursTestArguments")
         void givenDicesResult_whenEvaluateFoursScore_ShouldReturnAllFoursAddedAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -145,7 +147,7 @@ class Yatzy1Test {
 
     @Nested
     class Fives {
-        @ParameterizedTest
+        @ParameterizedTest(name = "FIVES - Expect score {1} for dice roll {0}")
         @MethodSource("fivesTestArguments")
         void givenDicesResult_whenEvaluateFivesScore_ShouldReturnAllFivesAddedAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -167,7 +169,7 @@ class Yatzy1Test {
 
     @Nested
     class Sixes {
-        @ParameterizedTest
+        @ParameterizedTest(name = "SIXES - Expect score {1} for dice roll {0}")
         @MethodSource("sixesTestArguments")
         void givenDicesResult_whenEvaluateSixesScore_ShouldReturnAllSixesAddedAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -189,7 +191,7 @@ class Yatzy1Test {
 
     @Nested
     class Pair {
-        @ParameterizedTest
+        @ParameterizedTest(name = "PAIR - Expect score {1} for dice roll {0}")
         @MethodSource("pairTestArguments")
         void givenDicesResult_whenEvaluatePairScore_ShouldReturnSumOfHighestPairAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -212,7 +214,7 @@ class Yatzy1Test {
 
     @Nested
     class TwoPairs {
-        @ParameterizedTest
+        @ParameterizedTest(name = "TWO PAIR - Expect score {1} for dice roll {0}")
         @MethodSource("twoPairTestArguments")
         void givenDicesResult_whenEvaluatePairScore_ShouldReturnSumOfTwoPairAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -234,7 +236,7 @@ class Yatzy1Test {
 
     @Nested
     class ThreeOfKind {
-        @ParameterizedTest
+        @ParameterizedTest(name = "THREE OF KIND - Expect score {1} for dice roll {0}")
         @MethodSource("threeOfKindTestArguments")
         void givenDicesResult_whenEvaluateThreeOfKindScore_ShouldReturnSumOfThreeOfKindAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -255,7 +257,7 @@ class Yatzy1Test {
 
     @Nested
     class FourOfKind {
-        @ParameterizedTest
+        @ParameterizedTest(name = "FOUR OF KIND - Expect score {1} for dice roll {0}")
         @MethodSource("fourOfKindTestArguments")
         void givenDicesResult_whenEvaluateFourOfKindScore_ShouldReturnSumOfFourOfKindAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -276,7 +278,7 @@ class Yatzy1Test {
 
     @Nested
     class SmallStraight {
-        @ParameterizedTest
+        @ParameterizedTest(name = "SMALL STRAIGHT - Expect score {1} for dice roll {0}")
         @MethodSource("smallStraightTestArguments")
         void givenDicesResult_whenEvaluateSmallStraightScore_ShouldReturn15AsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -296,7 +298,7 @@ class Yatzy1Test {
 
     @Nested
     class LargeStraight {
-        @ParameterizedTest
+        @ParameterizedTest(name = "LARGE STRAIGHT - Expect score {1} for dice roll {0}")
         @MethodSource("largeStraightTestArguments")
         void givenDicesResult_whenEvaluateLargeStraightScore_ShouldReturn20AsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);
@@ -316,7 +318,7 @@ class Yatzy1Test {
 
     @Nested
     class FullHouse {
-        @ParameterizedTest
+        @ParameterizedTest(name = "FULL HOUSE - Expect score {1} for dice roll {0}")
         @MethodSource("fullHouseTestArguments")
         void givenDicesResult_whenEvaluateFullHouseScore_ShouldReturnSumOfFullHouseAsScore(int[] dices, int expectedScore) {
             Yatzy1 yatzy1 = Yatzy1.of(dices[0], dices[1], dices[2], dices[3], dices[4]);

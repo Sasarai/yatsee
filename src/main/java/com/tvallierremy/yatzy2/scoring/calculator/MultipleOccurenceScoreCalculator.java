@@ -6,8 +6,6 @@ import java.util.Comparator;
 import java.util.Map;
 
 public record MultipleOccurenceScoreCalculator(Integer wantedOccurrence) implements ScoreCalculator {
-    private static final int NO_POINT = 0;
-
     @Override
     public int evaluate(Map<DiceValue, Long> diceFrequencies) {
         return diceFrequencies.entrySet().stream()
